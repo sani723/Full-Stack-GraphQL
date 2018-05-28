@@ -1,6 +1,6 @@
 const _ = require("lodash");
 
-// Dummy data 
+// Dummy data
 const tweetsList = [
     { id: 1, body: 'Lorem Ipsum', date: new Date(), author_id: 10 },
     { id: 2, body: 'Sic dolor amet', date: new Date(), author_id: 11 },
@@ -23,3 +23,15 @@ const statsList = [
     { tweet_id: 5, views: 878, likes: 15, retweets: 22, responses: 34 },
     { tweet_id: 6, views: 1987, likes: 345, retweets: 763, responses: 106 },
 ];
+
+
+const resolvers = {
+  Query: {
+    getTweets: (parent, args, context, info) => tweetsList,
+    getTweet: (parent, args, context, info) => {
+      return _.find(tweetsList, { id: args.id });
+    }
+  }
+}
+
+module.exports = resolvers;
