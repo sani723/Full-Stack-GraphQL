@@ -1,6 +1,6 @@
 const { ApolloServer, gql } = require('apollo-server');
 const typeDefs = require("./schema/typeDefs");
-
+const resolvers = require("./resolvers/index");
 
   // In the most basic sense, the ApolloServer can be started
   // by passing type definitions (typeDefs) and the resolvers
