@@ -35,6 +35,8 @@ const typeDefs = gql`
   type Query {
     getTweet(id: ID): Tweet
     getTweets(limit: Int, sortField: String, sortOrder: String): [Tweet]
+    getUsers: [User]
+    getUser(id: Int): User
   }
 
 `;

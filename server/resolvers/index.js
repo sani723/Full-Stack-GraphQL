@@ -30,8 +30,25 @@ const resolvers = {
     getTweets: (parent, args, context, info) => tweetsList,
     getTweet: (parent, args, context, info) => {
       return _.find(tweetsList, { id: args.id });
+    },
+    getUsers: (parent, args, context, info) => authorsList,
+    getUser: (parent, args, context, info) => {
+      return _.find(authorsList, { id: args.id });
     }
-  }
+  },
+  Tweet: {
+    author: (parent, args, context, info) => {
+      return _.find(authorsList, {id: parent.author_id})
+    },
+    stats: (parent, args, context, info) => {
+      return _.find(statsList, {tweet_id: parent.id} )
+    }
+  },
+  User: {
+    full_name: (parent, args, context, info) => {
+      return `${parent.first_name} ${parent.last_name}`
+    }
+  },
 }
 
 module.exports = resolvers;
