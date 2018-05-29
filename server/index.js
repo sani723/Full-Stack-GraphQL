@@ -16,7 +16,7 @@ mongoose.connection.once("open", () => {
   const server = new ApolloServer({ typeDefs, resolvers });
 
   // This `listen` method launches a web-server.  Existing apps
-  // can utilize middleware options, which we'll discuss later.
+  // can utilize middleware options.
   server.listen().then(({ url }) => {
     console.log(`🚀  Server ready at ${url}`);
   });
