@@ -1,4 +1,7 @@
 const _ = require("lodash");
+const TweetModel = require("../models/tweet");
+const UserModel = require("../models/user");
+const StatModel = require("../models/stat");
 
 // Dummy data
 const tweetsList = [
