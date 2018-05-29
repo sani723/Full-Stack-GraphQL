@@ -36,7 +36,13 @@ const typeDefs = gql`
     getTweet(id: ID): Tweet
     getTweets(limit: Int, sortField: String, sortOrder: String): [Tweet]
     getUsers: [User]
-    getUser(id: Int): User
+    getUser(id: ID): User
+  }
+
+  type Mutation {
+    createTweet(body: String, date: Date, author_id: ID): Tweet
+    createUser(username: String, first_name: String, last_name: String, avatar_url: String): User
+    createStat(tweet_id: ID, views: Int, likes: Int, retweets: Int, responses: Int): Stat
   }
 
 `;

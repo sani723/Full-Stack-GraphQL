@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const statSchema = new Schema({
-  tweet_id: Number,
+  tweet_id: String,
   views: Number,
   likes: Number,
   retweets: Number,
