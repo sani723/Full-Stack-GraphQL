@@ -8,6 +8,10 @@ body {
   padding: 5% 10%;
   display: flex;
 }
+.left-bar {
+  width: 530px;
+  height: auto;
+}
 .right-bar {
   padding: 10rem 5rem 0 2rem;
 }

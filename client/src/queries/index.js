@@ -24,4 +24,12 @@ const GET_TWEETS = gql`
   }
 `;
 
-export {GET_TWEETS, GET_AUTHORS};
+const ADD_TWEET = gql`
+  mutation createTweet($body: String!, $author_id: ID!, $date: Date) {
+    createTweet(body: $body, author_id:$author_id, date: $date){
+      id
+    }
+  }
+`;
+
+export {GET_TWEETS, GET_AUTHORS, ADD_TWEET};
