@@ -1,29 +1,15 @@
 import React, { Component, Fragment } from 'react';
 import { Query } from "react-apollo";
-import gql from "graphql-tag";
 import Fetching from '../Fetching';
 import TweetListItem from './TweetListItem';
-
-const GET_TWEET = gql`
-  {
-    getTweets {
-      id
-      body
-      author {
-        username
-        full_name
-        avatar_url
-      }
-    }
-  }
-`;
+import { GET_TWEETS } from '../../queries';
 
 class TweetList extends Component {
   render() {
     return(
       <div className="wrapper">
 
-        <Query query={GET_TWEET} notifyOnNetworkStatusChange>
+        <Query query={GET_TWEETS} notifyOnNetworkStatusChange>
 
           {
             ({loading, error, data, refetch, networkStatus}) => {

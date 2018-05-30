@@ -1,17 +1,7 @@
 import React, { Component } from 'react';
 import { Query } from "react-apollo";
-import gql from "graphql-tag";
 import SelectItem from './SelectItem';
-
-const GET_AUTHORS = gql`
-  {
-    getUsers {
-      id
-      full_name
-    }
-  }
-`;
-
+import { GET_AUTHORS } from '../../queries';
 
 class AddTweet extends Component {
   render() {
@@ -28,7 +18,6 @@ class AddTweet extends Component {
             {
               ({loading, error, data}) => {
                 if(loading) return <option disabled>Fetaching...</option>;
-                //if(error) return <option>Error :( {error}</option>;
 
                 return (
                   <select>
