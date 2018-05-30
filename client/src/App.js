@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ApolloClient from "apollo-boost";
 import { ApolloProvider } from "react-apollo";
 import TweetList from './components/TweetList';
+import AddTweet from './components/AddTweet';
 
 
 // Apollo client setup
@@ -14,8 +15,14 @@ class App extends Component {
     return (
       <ApolloProvider client={client}>
         <div className="main">
-          <h1>Latest Tweets</h1>
-          <TweetList />
+          <div className="left-bar">
+            <h1>Latest Tweets</h1>
+            <TweetList />
+          </div>
+          <div className="right-bar">
+            <AddTweet />
+          </div>
+
         </div>
       </ApolloProvider>
     );
