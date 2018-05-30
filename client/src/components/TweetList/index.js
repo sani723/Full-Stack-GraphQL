@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Query } from "react-apollo";
 import gql from "graphql-tag";
+import Fetching from '../Fetching';
 import TweetListItem from './TweetListItem';
 
 const GET_TWEET = gql`
@@ -27,7 +28,7 @@ class TweetList extends Component {
 
               ({loading, error, data}) => {
 
-                if(loading) return <p>Loading...</p>;
+                if(loading) return <Fetching />;
                 if(error) return <p>Error :( {error}</p>;
 
                 return <TweetListItem data={data} />
