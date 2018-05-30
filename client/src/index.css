@@ -4,10 +4,55 @@ body {
   font-family: sans-serif;
   background: #eee;
 }
+.main {
+  padding: 5% 10%;
+}
 .loader {
   width: 50px;
   height: 50px;
 }
 .loader img {
   width: 100%;
+}
+ul {
+  list-style-type: none;
+  width: 500px;
+}
+
+h3 {
+  font: bold 20px/1.5 Helvetica, Verdana, sans-serif;
+}
+
+li img {
+  float: left;
+  margin: 0 15px 0 0;
+}
+
+li p {
+  font: 200 12px/1.5 Georgia, Times New Roman, serif;
+}
+
+li {
+  padding: 10px;
+  overflow: auto;
+}
+
+li:hover {
+  background: #ccc;
+  cursor: pointer;
+}
+.avatar {
+  width: 128px;
+  height: 128px;
+}
+
+button {
+    background: #EB3223;
+    border-radius: 8px;
+    border: 0;
+    max-width: 23.1rem;
+    padding: 1rem 2.5rem;
+    letter-spacing: -0.1px;
+    font-size: 1.5rem;
+    color: #fff;
 }
