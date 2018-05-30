@@ -9,7 +9,7 @@ class TweetListItem extends Component {
         <li key={item.id}>
           <img className="avatar" src={item.author.avatar_url} alt="GraphQL" />
           <h3>{item.body}</h3>
-          <p>{item.author.username}</p>
+          <p>{item.author.username} - {item.author.full_name}</p>
         </li>
       ))
     );

@@ -11,6 +11,7 @@ const GET_TWEET = gql`
       body
       author {
         username
+        full_name
         avatar_url
       }
     }
@@ -22,20 +23,20 @@ class TweetList extends Component {
     return(
       <div className="wrapper">
 
-        <Query query={GET_TWEET}>
+        <Query query={GET_TWEET} notifyOnNetworkStatusChange>
 
           {
-            ({loading, error, data, refetch}) => {
-
+            ({loading, error, data, refetch, networkStatus}) => {
+              if (networkStatus === 4) return "Refetching...";
               if(loading) return <Fetching />;
               if(error) return <p>Error :( {error}</p>;
 
               return (
                 <Fragment>
+                  <button onClick={() => refetch()}>Refetch!</button>
                   <ul id="tweets-list">
                     <TweetListItem data={data} />
                   </ul>
-                  <button onClick={() => refetch()}>Refetch!</button>
                 </Fragment>
               );
 
