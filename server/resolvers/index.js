@@ -2,6 +2,8 @@ const _ = require("lodash");
 const TweetModel = require("../models/tweet");
 const UserModel = require("../models/user");
 const StatModel = require("../models/stat");
+const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
 
 const resolvers = {
   Query: {
@@ -19,7 +21,17 @@ const resolvers = {
       return UserModel.findById(parent.author_id);
     },
     stats: (parent, args, context, info) => {
+
       return StatModel.find({ tweet_id: parent.id });
+
+      /*
+      return StatModel.find({ tweet_id: parent.id }, "views likes" ,function(err, tweetMeta) {
+         tweetMeta;
+         console.log(tweetMeta);
+      });
+      */
+
+
     }
   },
   User: {
