@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { compose, graphql } from "react-apollo";
 import SelectItem from './SelectItem';
-import { GET_AUTHORS, ADD_TWEET } from '../../queries';
+import { GET_AUTHORS, ADD_TWEET, GET_TWEETS } from '../../queries';
 
 class AddTweet extends Component {
 
@@ -21,7 +21,8 @@ class AddTweet extends Component {
         body: this.state.tweetBody,
         author_id: this.state.tweetAuthorId,
         date: this.state.tweetPublishedDate
-      }
+      },
+      refetchQueries: [ {query: GET_TWEETS} ]
     });
   }
 
