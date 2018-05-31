@@ -5,7 +5,7 @@ class SelectItem extends Component {
   render() {
 
     return (
-      this.props.data.getUsers.map( (item, index) => (
+      this.props.data.map( (item, index) => (
         <option key={item.id} value={item.id}>{item.full_name}</option>
       ))
     );

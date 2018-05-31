@@ -13,7 +13,7 @@ body {
   height: auto;
 }
 .right-bar {
-  padding: 10rem 5rem 0 2rem;
+  padding: 7.4rem 5rem 0 2rem;
 }
 .loader {
   width: 50px;
@@ -60,11 +60,87 @@ li:hover {
 
 button {
     background: #EB3223;
-    border-radius: 8px;
     border: 0;
     max-width: 23.1rem;
-    padding: 1rem 2.5rem;
+    padding: 0.5rem 1.5rem;
     letter-spacing: -0.1px;
-    font-size: 1.5rem;
+    font-size: .8rem;
     color: #fff;
+}
+#add-tweet{
+    font: 95% Arial, Helvetica, sans-serif;
+    max-width: 400px;
+    margin: 10px auto;
+    padding: 16px;
+    background: #F7F7F7;
+}
+#add-tweet h1{
+    background: #EB3223;
+    padding: 20px 0;
+    font-size: 140%;
+    font-weight: 300;
+    text-align: center;
+    color: #fff;
+    margin: -16px -16px 16px -16px;
+}
+#add-tweet input[type="text"],
+#add-tweet input[type="date"],
+#add-tweet input[type="datetime"],
+#add-tweet input[type="email"],
+#add-tweet input[type="number"],
+#add-tweet input[type="search"],
+#add-tweet input[type="time"],
+#add-tweet input[type="url"],
+#add-tweet textarea,
+#add-tweet select
+{
+    -webkit-transition: all 0.30s ease-in-out;
+    -moz-transition: all 0.30s ease-in-out;
+    -ms-transition: all 0.30s ease-in-out;
+    -o-transition: all 0.30s ease-in-out;
+    outline: none;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    width: 100%;
+    background: #fff;
+    margin-bottom: 4%;
+    border: 1px solid #ccc;
+    padding: 3%;
+    color: #555;
+    font: 95% Arial, Helvetica, sans-serif;
+}
+#add-tweet input[type="text"]:focus,
+#add-tweet input[type="date"]:focus,
+#add-tweet input[type="datetime"]:focus,
+#add-tweet input[type="email"]:focus,
+#add-tweet input[type="number"]:focus,
+#add-tweet input[type="search"]:focus,
+#add-tweet input[type="time"]:focus,
+#add-tweet input[type="url"]:focus,
+#add-tweet textarea:focus,
+#add-tweet select:focus
+{
+    box-shadow: 0 0 5px #43D1AF;
+    padding: 3%;
+    border: 1px solid #43D1AF;
+}
+
+#add-tweet input[type="submit"],
+#add-tweet input[type="button"]{
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    width: 100%;
+    padding: 3%;
+    background: #EB3223;
+    border-bottom: 2px solid #30C29E;
+    border-top-style: none;
+    border-right-style: none;
+    border-left-style: none;
+    color: #fff;
+}
+#add-tweet input[type="submit"]:hover,
+#add-tweet input[type="button"]:hover{
+    background: #2EBC99;
 }

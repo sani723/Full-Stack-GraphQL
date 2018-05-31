@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { Query } from "react-apollo";
-import { Mutation, compose, graphql } from "react-apollo";
+import { compose, graphql } from "react-apollo";
 import SelectItem from './SelectItem';
 import { GET_AUTHORS, ADD_TWEET } from '../../queries';
 
@@ -26,39 +25,26 @@ class AddTweet extends Component {
     });
   }
 
+  loadAuthors = (loading, data) => {
+    if(loading) {
+      return <option disabled>Fetaching...</option>;
+    } else {
+      return <SelectItem data={data} />;
+    }
+  }
+
   render() {
-    //console.log(this.props.getAuthors.getUsers);
+    const { loading, getUsers } = this.props.getAuthors;
     return (
       <form id="add-tweet" onSubmit={this.submitHandler.bind(this)}>
-        <div className="field">
-          <label>Tweet</label>
-          <input type="text" onChange={(e) => this.setState({tweetBody: e.target.value})} />
-        </div>
-        <div className="field">
-          <label>Author</label>
+        <h1>Create Tweet</h1>
+        <input type="text" onChange={(e) => this.setState({tweetBody: e.target.value})} placeholder="Tweet text" />
+        <select onChange={(e) => this.setState({tweetAuthorId: e.target.value})}>
+          <option value="0">Select author</option>
+          {!loading && this.loadAuthors(loading, getUsers) }
+        </select>
 
-          <Query query={GET_AUTHORS}>
-            {
-              ({loading, error, data}) => {
-
-                if(loading) return <option disabled>Fetaching...</option>;
-
-                return (
-                  <select onChange={(e) => this.setState({tweetAuthorId: e.target.value})}>
-                    <option value="0">Select author</option>
-                    <SelectItem data={data} />
-                  </select>
-                )
-
-              }
-            }
-          </Query>
-
-
-        </div>
-        <div className="field">
-          <button>Add Tweet</button>
-        </div>
+        <button>Add Tweet</button>
       </form>
     );
   }
