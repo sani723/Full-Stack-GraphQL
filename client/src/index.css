@@ -144,3 +144,7 @@ button {
 #add-tweet input[type="button"]:hover{
     background: #2EBC99;
 }
+#tweets-list {
+  height: 450px;
+  overflow: scroll;
+}
