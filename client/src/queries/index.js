@@ -48,4 +48,12 @@ const ADD_TWEET = gql`
   }
 `;
 
-export {GET_TWEETS, GET_AUTHORS, ADD_TWEET, GET_TWEET_META};
+
+
+const GET_SELECTED_TWEET_ID = gql`
+  {
+    selectedTweetId @client
+  }
+`;
+
+export {GET_TWEETS, GET_AUTHORS, ADD_TWEET, GET_TWEET_META, GET_SELECTED_TWEET_ID};

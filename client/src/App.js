@@ -5,9 +5,37 @@ import TweetList from './components/TweetList';
 import AddTweet from './components/AddTweet';
 import TweetMeta from './components/TweetMeta';
 
+
+
+// Local State management Starts here
+const defaults = {
+  selectedTweetId: '5b0f7736a930f255ec5cdd41'
+};
+
+
+const typeDefs = `
+  type Query {
+    selectedTweetId: String
+  }
+`;
+
+
+const resolvers = {
+
+};
+// Local State management End here
+
+
+
+
 // Apollo client setup
 const client = new ApolloClient({
-  uri: "http://localhost:4000/graphql"
+  uri: "http://localhost:4000/graphql",
+  clientState: {
+    defaults,
+    resolvers,
+    typeDefs
+  }
 });
 
 class App extends Component {

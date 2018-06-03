@@ -9,7 +9,7 @@ const resolvers = {
   Query: {
     getTweets: (parent, args, context, info) => TweetModel.find({}),
     getTweet: (parent, args, context, info) => {
-      return TweetModel.findById(args.id);
+      return TweetModel.findById(mongoose.Types.ObjectId(args.id));
     },
     getUsers: (parent, args, context, info) => UserModel.find({}),
     getUser: (parent, args, context, info) => {

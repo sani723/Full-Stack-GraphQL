@@ -8,7 +8,7 @@ const typeDefs = gql`
     body: String # The tweet text. No more than 140 characters!
     date: Date # When the tweet was published
     author: User # Who published the tweet
-    stats: [Stat] # Views, retweets, likes etc.
+    stats: Stat # Views, retweets, likes etc.
   }
 
   # User type
