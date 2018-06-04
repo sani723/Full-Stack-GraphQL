@@ -9,7 +9,7 @@ import TweetMeta from './components/TweetMeta';
 
 // Local State management Starts here
 const defaults = {
-  selectedTweetId: '5b0f7736a930f255ec5cdd41'
+    selectedTweetId: '5b0f7736a930f255ec5cdd41'
 };
 
 
@@ -23,7 +23,7 @@ const typeDefs = `
 const resolvers = {
 
 };
-// Local State management End here
+// Local State management Ends here
 
 
 

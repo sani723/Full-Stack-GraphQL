@@ -18,14 +18,17 @@ class TweetMeta extends Component {
                 {
 
                   ({loading, error, data}) => {
-                    console.log(data);
+                    if(data.getTweet){
+                      //console.log(data.getTweet.stats[0].views);
+                    }
+
                     if(loading) return <Fetching />;
                     if(error) return `Error!: ${error}`;
-
+                    const {views, responses, retweets, likes} = data.getTweet.stats[0];
                     return (
                       <Fragment>
                         <p>{data.getTweet.body}</p>
-                        <p>{data.getTweet.stats.views}</p>
+                        <p>{ views } - { responses } - { retweets } - { likes }</p>
                       </Fragment>
                     );
 
@@ -34,7 +37,7 @@ class TweetMeta extends Component {
                 }
               </Query>
 
-              )
+            )
 
           }
         </Query>

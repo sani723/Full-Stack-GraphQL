@@ -34,6 +34,9 @@ const GET_TWEET_META = gql`
       }
       stats {
         views
+        likes
+        responses
+        retweets
       }
     }
   }

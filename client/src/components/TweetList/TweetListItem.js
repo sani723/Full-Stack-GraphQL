@@ -5,7 +5,7 @@ class TweetListItem extends Component {
   render() {
     return (
       this.props.data.getTweets.map( (item, index) => (
-        <ApolloConsumer>
+        <ApolloConsumer key={item.id}>
           {client => (
             <li key={item.id} onClick={ (e) => client.writeData({ data: {selectedTweetId: item.id } }) }>
               <img className="avatar" src={item.author.avatar_url} alt="GraphQL" />
