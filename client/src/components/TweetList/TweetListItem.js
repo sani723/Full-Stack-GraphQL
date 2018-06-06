@@ -9,9 +9,9 @@ class TweetListItem extends Component {
         <ApolloConsumer key={item.id}>
           {client => (
             <li key={item.id} onMouseOver={ () => client.query({query:GET_TWEET_META, variables: { id: item.id } }) } onClick={ () => client.writeData({ data: {selectedTweetId: item.id } }) }>
-              <img className="avatar" src={item.author.avatar_url} alt="GraphQL" />
+              {/*<img className="avatar" src={item.author.avatar_url} alt="GraphQL" />*/}
               <h3>{item.body}</h3>
-              <p>{item.author.username} - {item.author.full_name}</p>
+              {/*<p>{item.author.username} - {item.author.full_name}</p>*/}
             </li>
           )}
         </ApolloConsumer>

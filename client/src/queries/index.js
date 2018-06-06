@@ -15,11 +15,6 @@ const GET_TWEETS = gql`
     getTweets {
       id
       body
-      author {
-        username
-        full_name
-        avatar_url
-      }
     }
   }
 `;
@@ -31,6 +26,8 @@ const GET_TWEET_META = gql`
       body
       author {
         username
+        full_name
+        avatar_url
       }
       stats {
         views
@@ -41,7 +38,6 @@ const GET_TWEET_META = gql`
     }
   }
 `;
-
 
 const ADD_TWEET = gql`
   mutation createTweet($body: String!, $author_id: ID!, $date: Date) {

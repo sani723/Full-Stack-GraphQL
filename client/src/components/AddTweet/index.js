@@ -28,25 +28,25 @@ class AddTweet extends Component {
 
   loadAuthors = (loading, data) => {
     if(loading) {
-      return <option disabled>Fetaching...</option>;
+      return <option disabled>Fetching...</option>;
     } else {
       return <SelectItem data={data} />;
     }
   }
 
   render() {
-    
+
     const { loading, getUsers } = this.props.getAuthors;
     return (
       <form id="add-tweet" onSubmit={this.submitHandler.bind(this)}>
-        <h1>Create Tweet</h1>
-        <input type="text" onChange={(e) => this.setState({tweetBody: e.target.value})} placeholder="Tweet text" />
-        <select onChange={(e) => this.setState({tweetAuthorId: e.target.value})}>
-          <option value="0">Select author</option>
-          {!loading && this.loadAuthors(loading, getUsers) }
-        </select>
-
-        <button>Add Tweet</button>
+        <p><input type="text" id="txtTweetBody" onChange={(e) => this.setState({tweetBody: e.target.value})} placeholder="Tweet text" /></p>
+        <p>
+          <select onChange={(e) => this.setState({tweetAuthorId: e.target.value})}>
+            <option value="0">Select author</option>
+            {!loading && this.loadAuthors(loading, getUsers) }
+          </select>
+        </p>
+        <p><button>Tweet</button></p>
       </form>
     );
   }

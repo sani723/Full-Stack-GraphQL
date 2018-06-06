@@ -44,11 +44,13 @@ class App extends Component {
       <ApolloProvider client={client}>
         <div className="main">
           <div className="left-bar">
+            <div className="create-tweet">
+              <AddTweet />
+            </div>
             <h1>Latest Tweets</h1>
             <TweetList />
           </div>
           <div className="right-bar">
-            <AddTweet />
             <TweetMeta />
           </div>
 

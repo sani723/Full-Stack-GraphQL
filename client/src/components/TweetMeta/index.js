@@ -7,7 +7,6 @@ class TweetMeta extends Component {
   render() {
     return (
       <div className="tweet-meta">
-        <p>Output tweet meta here</p>
 
         <Query query={GET_SELECTED_TWEET_ID}>
           {
@@ -27,6 +26,11 @@ class TweetMeta extends Component {
 
                     return (
                       <Fragment>
+                        <div className="tweet__author-avatar">
+                          <img className="avatar" src={data.getTweet.author.avatar_url} alt="GraphQL" />
+                        </div>
+                        <h2>{data.getTweet.author.full_name}</h2>
+                        <p>@{data.getTweet.author.username}</p>
                         <p>{data.getTweet.body}</p>
                         <p>{ views } - { responses } - { retweets } - { likes }</p>
                       </Fragment>
