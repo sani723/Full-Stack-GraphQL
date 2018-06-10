@@ -43,6 +43,8 @@ const typeDefs = gql`
     createTweet(body: String, date: Date, author_id: ID): Tweet
     createUser(username: String, first_name: String, last_name: String, avatar_url: String): User
     createStat(tweet_id: ID, views: Int, likes: Int, retweets: Int, responses: Int): Stat
+    # updateTweetMeta(tweetId: ID, views: Int, likes: Int, retweets: Int, responses: Int): Stat
+    updateTweetMeta(tweetId: ID, metaCategory: String): Stat
   }
 
 `;

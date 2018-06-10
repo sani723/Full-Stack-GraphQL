@@ -67,6 +67,34 @@ const resolvers = {
       });
       return stat.save();
     },
+    updateTweetMeta: (parent, args, context, info) => {
+
+      let metaCounter = 1;
+      let metaCategoryName = args.metaCategory;
+
+      StatModel.findOne({tweet_id: args.tweetId}, `${args.metaCategory}`, function(err, results) {
+        metaCounter = metaCounter + results[args.metaCategory];
+
+        let update = {};
+        let query = { tweet_id: args.tweetId };
+        if(metaCategoryName === "views") {
+          update = { $set: {views: metaCounter}};
+        } else if(metaCategoryName === "likes") {
+          update = { $set: {likes: metaCounter}};
+        } else if(metaCategoryName === "retweets") {
+          update = { $set: {retweets: metaCounter}};
+        } else if(metaCategoryName === "responses") {
+          update = { $set: {responses: metaCounter}};
+        }
+
+        let options = {new: true}
+        StatModel.findOneAndUpdate(query, update, options, function(err, doc){
+          
+        });
+
+      });
+
+    },
   }
 }
 

@@ -41,8 +41,17 @@ const GET_TWEET_META = gql`
 
 const ADD_TWEET = gql`
   mutation createTweet($body: String!, $author_id: ID!, $date: Date) {
-    createTweet(body: $body, author_id:$author_id, date: $date){
+    createTweet(body: $body, author_id:$author_id, date: $date) {
       id
+    }
+  }
+`;
+
+
+const UPDATE_TWEET_META = gql`
+  mutation updateTweetMeta($tweetId: ID!, $metaCategory: String!) {
+    updateTweetMeta(tweetId: $tweetId, metaCategory: $metaCategory) {
+      views
     }
   }
 `;
@@ -55,4 +64,4 @@ const GET_SELECTED_TWEET_ID = gql`
   }
 `;
 
-export {GET_TWEETS, GET_AUTHORS, ADD_TWEET, GET_TWEET_META, GET_SELECTED_TWEET_ID};
+export {GET_TWEETS, GET_AUTHORS, ADD_TWEET, GET_TWEET_META, GET_SELECTED_TWEET_ID, UPDATE_TWEET_META};
