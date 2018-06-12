@@ -34,7 +34,7 @@ const typeDefs = gql`
 
   type Query {
     getTweet(id: ID): Tweet
-    getTweets(limit: Int, sortField: String, sortOrder: String): [Tweet]
+    getTweets(offset: Int, limit: Int, sortField: String, sortOrder: String): [Tweet]
     getUsers: [User]
     getUser(id: ID): User
   }

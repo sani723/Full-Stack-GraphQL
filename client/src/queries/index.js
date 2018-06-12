@@ -11,8 +11,8 @@ const GET_AUTHORS = gql`
 
 
 const GET_TWEETS = gql`
-  {
-    getTweets {
+  query getTweets($offset: Int, $limit: Int){
+    getTweets(offset: $offset, limit: $limit) {
       id
       body
     }

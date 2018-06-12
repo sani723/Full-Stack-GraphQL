@@ -167,3 +167,8 @@ select{
 .tweet-meta p {
   text-align: center;
 }
+.cta {
+  display: flex;
+  padding: 5px 10px;
+  justify-content: space-around;
+}

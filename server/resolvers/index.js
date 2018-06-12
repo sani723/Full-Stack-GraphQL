@@ -7,7 +7,12 @@ const Schema = mongoose.Schema;
 
 const resolvers = {
   Query: {
-    getTweets: (parent, args, context, info) => TweetModel.find({}),
+    getTweets: (parent, args, context, info) => {
+      return TweetModel.find({}, null, {limit: args.limit, skip: args.offset}, function(err, data) {
+        //console.log(data);
+        return data;
+      });
+    },//TweetModel.find({}).skip(2).limit(5),
     getTweet: (parent, args, context, info) => {
       return TweetModel.findById(mongoose.Types.ObjectId(args.id));
     },
@@ -89,7 +94,7 @@ const resolvers = {
 
         let options = {new: true}
         StatModel.findOneAndUpdate(query, update, options, function(err, doc){
-          
+
         });
 
       });

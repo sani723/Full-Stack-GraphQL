@@ -9,17 +9,47 @@ class TweetList extends Component {
     return(
       <div className="wrapper">
 
-        <Query query={GET_TWEETS} notifyOnNetworkStatusChange>
+        <Query
+          query = {GET_TWEETS}
+          variables = {{
+            offset: 0,
+            limit: 5
+          }}
+          notifyOnNetworkStatusChange
+        >
 
           {
-            ({loading, error, data, refetch, networkStatus}) => {
+            ({loading, error, data, refetch, networkStatus, fetchMore}) => {
               if (networkStatus === 4) return "Refetching...";
               if(loading) return <Fetching />;
               if(error) return <p>Error :( {error}</p>;
 
               return (
                 <Fragment>
-                  <button onClick={() => refetch()}>Refetch!</button>
+                  <div className="cta">
+                    <button onClick={() =>
+                      refetch()}
+                    >
+                      Refetch!
+                    </button>
+                    <button onClick={() =>
+                      fetchMore({
+                        variables: {
+                          offset: data.getTweets.length
+                        },
+                        updateQuery: (prev, {fetchMoreResult}) => {
+                          if (!fetchMoreResult) return prev;
+                          return Object.assign({}, prev, {
+                            getTweets: [...prev.getTweets, ...fetchMoreResult.getTweets]
+                          });
+                        }
+                      })
+                    }
+                    >
+                      Next
+                    </button>
+                  </div>
+
                   <ul id="tweets-list">
                     <TweetListItem data={data} />
                   </ul>
