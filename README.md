@@ -15,6 +15,8 @@ To run Apollo server `cd server`
 node index.js
 ```
 
+🚀  Server ready at http://localhost:4000/
+
 and go to `http://localhost:4000/`
 
 ## Client
