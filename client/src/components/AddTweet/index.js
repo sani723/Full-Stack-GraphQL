@@ -1,9 +1,28 @@
-import React, { Component } from 'react';
+// @flow
+
+import * as React from 'react';
 import { compose, graphql } from "react-apollo";
 import SelectItem from './SelectItem';
 import { GET_AUTHORS, ADD_TWEET, GET_TWEETS } from '../../queries';
 
-class AddTweet extends Component {
+type Author = {
+  id: number,
+  full_name: string
+}
+
+type AuthorProps = {
+  getAuthors: () => Author,
+  addTweet: (variables: mixed) => void
+}
+
+type TweetState = {
+  tweetBody: string,
+  tweetAuthorId: string,
+  tweetPublishedDate: mixed
+}
+
+//class AddTweet extends React.Component<null, TweetState> {
+class AddTweet extends React.Component<AuthorProps, TweetState> {
 
   constructor(props) {
     super(props);
@@ -14,8 +33,8 @@ class AddTweet extends Component {
     };
   }
 
-  submitHandler(e) {
-    e.preventDefault();
+  submitHandler(event: SyntheticEvent<HTMLButtonElement>) {
+    event.preventDefault();
     this.props.addTweet({
       variables: {
         body: this.state.tweetBody,
