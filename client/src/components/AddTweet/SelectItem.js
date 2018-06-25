@@ -1,6 +1,17 @@
-import React, { Component } from 'react';
+// @flow
 
-class SelectItem extends Component {
+import * as React from 'react';
+
+type Tweet = {
+  id: number,
+  full_name: string
+}
+
+type ItemProp = {
+  data: Array<Tweet>
+}
+
+class SelectItem extends React.Component<ItemProp> {
 
   render() {
 

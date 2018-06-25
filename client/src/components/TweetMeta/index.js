@@ -1,9 +1,11 @@
-import React, { Component, Fragment } from 'react';
+// @flow
+
+import * as React from 'react';
 import { Query } from "react-apollo";
 import Fetching from '../Fetching';
 import { GET_TWEET_META, GET_SELECTED_TWEET_ID } from '../../queries';
 
-class TweetMeta extends Component {
+class TweetMeta extends React.Component<{}> {
   render() {
     return (
       <div className="tweet-meta">
@@ -25,7 +27,7 @@ class TweetMeta extends Component {
                     const {views, responses, retweets, likes} = data.getTweet.stats[0];
 
                     return (
-                      <Fragment>
+                      <React.Fragment>
                         <div className="tweet__author-avatar">
                           <img className="avatar" src={data.getTweet.author.avatar_url} alt="GraphQL" />
                         </div>
@@ -33,7 +35,7 @@ class TweetMeta extends Component {
                         <p>@{data.getTweet.author.username}</p>
                         <p>{data.getTweet.body}</p>
                         <p>{ views } - { responses } - { retweets } - { likes }</p>
-                      </Fragment>
+                      </React.Fragment>
                     );
 
                   }

@@ -1,8 +1,19 @@
-import React, { Component } from 'react';
+// @flow
+
+import * as React from 'react';
 import { ApolloConsumer } from 'react-apollo';
 import { GET_TWEET_META, UPDATE_TWEET_META } from '../../queries';
 
-class TweetListItem extends Component {
+type Tweets = {
+  id: number,
+  body: string
+}
+
+type TweetsProp = {
+  data: Array<Tweets>
+}
+
+class TweetListItem extends React.Component<TweetsProp> {
   render() {
     return (
       this.props.data.getTweets.map( (item, index) => (

@@ -1,10 +1,12 @@
-import React, { Component, Fragment } from 'react';
+// @flow
+
+import * as React from 'react';
 import { Query } from "react-apollo";
 import Fetching from '../Fetching';
 import TweetListItem from './TweetListItem';
 import { GET_TWEETS } from '../../queries';
 
-class TweetList extends Component {
+class TweetList extends React.Component<{}> {
   render() {
     return(
       <div className="wrapper">
@@ -25,7 +27,7 @@ class TweetList extends Component {
               if(error) return <p>Error :( {error}</p>;
 
               return (
-                <Fragment>
+                <React.Fragment>
                   <div className="cta">
                     <button onClick={() =>
                       refetch()}
@@ -53,7 +55,7 @@ class TweetList extends Component {
                   <ul id="tweets-list">
                     <TweetListItem data={data} />
                   </ul>
-                </Fragment>
+                </React.Fragment>
               );
 
             }

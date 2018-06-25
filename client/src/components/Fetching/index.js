@@ -1,3 +1,5 @@
+// @flow
+
 import React from 'react';
 import loadingImg from '../../assets/images/loading.gif';
 
